@@ -1,0 +1,90 @@
+/*--------------------------------------------------------------------
+* $GALLERY
+--------------------------------------------------------------------*/
+
+.gallery
+  width: calc(100vw - 500px)
+  height: 100vh
+  padding: 10px
+  overflow: scroll
+  position: fixed
+  right: 0
+  top: 0
+  z-index: 2
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+  background: white
+  text-align: center
+
+  .shirt
+    padding: 10px
+
+  img
+    width: 100%
+
+  figcaption
+    margin: -20px 0 30px
+    font-size: 70%
+    font-weight: $font-weight-bold
+
+  a
+    text-decoration: none
+    color: $black
+    
+    &:hover,
+    &:focus
+      background-color: $grey-lightest
+
+  button
+    &:focus
+      outline: 2px solid $black
+
+  #gallery-filters
+    display: none
+
+body.js-ready
+
+  .gallery
+    padding-top: 50px
+
+  .gallery-shirt
+    display: none
+    
+    &.show
+      display: block
+
+  #gallery-filters
+    width: calc(100vw - 500px)
+    margin-bottom: 10px
+    display: block
+    position: fixed
+    top: 0
+    right: 0
+    background-color: white
+    border-bottom: 2px solid $black
+    font-size: 80%
+    text-align: left
+
+  .filter
+    margin: 5px
+    padding: 5px 10px
+    position: relative
+    background: white
+    border: none
+    cursor: pointer
+    font-size: 100%
+    background-color: $grey-lightest
+    text-align: left
+
+    &:not(.active):hover
+      background-color: $black
+      color: white
+
+    &.active
+      padding-left: 25px
+      background-color: $gold
+      
+      &:before
+        content: '✔'
+        position: absolute
+        left: 8px

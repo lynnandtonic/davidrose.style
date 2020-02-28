@@ -1,0 +1,62 @@
+/*--------------------------------------------------------------------
+* $FEATURE
+--------------------------------------------------------------------*/
+
+$img-w = 525px
+$img-h = 650px
+$feature-w =500px
+
+.feature
+  width: $feature-w
+  min-height: $img-h
+  height: $img-h
+  position: absolute
+  left: 0
+  top: 0
+  overflow: hidden
+  z-index: 1
+  background-color: $gold
+
+  .david-rose
+    width: $img-w
+    height: $img-h
+    position: fixed
+    left: -10px
+    top: 0
+    z-index: 0
+
+  .shirt
+    width: $feature-w
+    height: $img-h
+    position: relative
+    z-index: 1
+    
+    img
+      width: $img-w
+      height: $img-h
+      position: absolute
+      left: -11px
+      top: 0
+      z-index: 2
+
+    .prev,
+    .next
+      width: 25px
+      height: 50px
+      position: absolute
+      bottom: 35%
+      z-index: 3
+      text-indent: -9999em
+      background: no-repeat center center
+      background-size: 80% auto
+      
+      &:focus
+        background-color: black(.2)
+        outline: none
+
+    .prev
+      left: 2%
+      background-image: url('/assets/images/arrow-left.svg')
+    .next
+      right: 2%
+      background-image: url('/assets/images/arrow-right.svg')

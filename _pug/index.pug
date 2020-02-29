@@ -1,8 +1,8 @@
 extends layout
 
 block vars
-  - var pageTitle = ''
-  - var pageDescription = ''
+  - var pageTitle = 'Dress David Rose'
+  - var pageDescription = 'Every shirt, sweater, and jacket David Rose wears on Schitt’s Creek.'
 
 mixin gallery(season,episode,item,alt)
   .gallery-shirt(class='season-0' + season)
@@ -195,6 +195,7 @@ block content
   section.feature
     h1 Dress David Rose
     h2 a #[a(href='https://twitter.com/lynnandtonic') Lynn Fisher] project
+    a#share(href='https://ctt.ac/IEsu0') Share
     img.david-rose(src='/assets/images/david-rose-default.svg')
     .shirt#top
       img(src='/assets/images/feature/david-rose-default.svg' alt='t-shirt that says “Dress me”')

@@ -2,20 +2,30 @@
 * $FEATURE
 --------------------------------------------------------------------*/
 
-$img-w = 550px
-$img-h =670px
-$feature-w =500px
+:root
+
+  @media screen and (min-width: $mobile + 1)
+    --feature-w: 500px
+    --img-w: 550px
+    --img-h: 670px
+  @media screen and (max-width: $mobile)
+    --feature-w: 100vw
+    --img-w: 430px
+    --img-h: 480px
 
 .feature
-  width: $feature-w
-  min-height: $img-h
-  height: $img-h
+  width: var(--feature-w)
+  min-height: var(--img-h)
+  height: var(--img-h)
   position: absolute
   left: 0
   top: 0
   overflow: hidden
   z-index: 1
   background-color: $gold
+
+  @media screen and (max-width: $mobile)
+    top: 130px
 
   h1, h2, #share
     position: fixed
@@ -25,9 +35,17 @@ $feature-w =500px
     top: 10px
     left: 10px
 
+    @media screen and (max-width: $mobile)
+      top: 160px
+      font-size: 90%
+
   h2
     top: 40px
     left: 10px
+
+    @media screen and (max-width: $mobile)
+      top: 180px
+      font-size: 70%
 
   #share
     padding-right: 20px
@@ -41,27 +59,42 @@ $feature-w =500px
     border-bottom: none
     font-size: 85%
 
+    @media screen and (max-width: $mobile)
+      top: 160px
+      right: 10px
+      left: auto
+      font-size: 80%
+
   .david-rose
-    width: $img-w
-    height: $img-h
+    width: var(--img-w)
+    height: var(--img-h)
     position: fixed
     left: -15px
     top: 0
     z-index: 0
 
+    @media screen and (max-width: $mobile)
+      top: 130px
+      left: 50%
+      transform: translateX(-47%)
+
   .shirt
-    width: $feature-w
-    height: $img-h
+    width: var(--feature-w)
+    height: var(--img-h)
     position: relative
     z-index: 1
     
     img
-      width: $img-w
-      height: $img-h
+      width: var(--img-w)
+      height: var(--img-h)
       position: absolute
       left: -15px
       top: 0
       z-index: 2
+
+      @media screen and (max-width: $mobile)
+        left: 50%
+        transform: translateX(-47%)
 
     .prev,
     .next
@@ -91,3 +124,8 @@ $feature-w =500px
     position: absolute
     bottom: 10px
     left: 400px
+
+    @media screen and (max-width: $mobile)
+      left: auto
+      right: 20px
+      font-size: 70%

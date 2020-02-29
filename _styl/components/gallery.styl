@@ -16,16 +16,37 @@
   background: white
   text-align: center
 
-  .shirt
+  @media screen and (min-width: 901px) and (max-width: 950px)
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr))
+
+  @media screen and (max-width: $mobile)
+    width: 100vw
+    height: 150px
+    overflow-x: scroll
+    overflow-y: hidden
+    display: flex
+
+    .gallery-shirt
+      display: inline-block
+      width: 100px
+      height: 100px
+      flex-shrink: 0
+
+  .gallery-shirt
     padding: 10px
 
   img
     width: 100%
 
   figcaption
-    margin: -20px 0 30px
-    font-size: 70%
     font-weight: $font-weight-bold
+
+    @media screen and (min-width: $mobile + 1)
+      margin: -20px 0 30px
+      font-size: 70%
+    @media screen and (max-width: $mobile)
+      margin: -15px 0 0
+      font-size: 60%
 
   a
     text-decoration: none
@@ -45,7 +66,10 @@
 body.js-ready
 
   .gallery
-    padding-top: 50px
+    @media screen and (min-width: $mobile + 1)
+      padding-top: 50px
+    @media screen and (max-width: $mobile)
+      padding-top: 35px
 
   .gallery-shirt
     display: none
@@ -54,9 +78,7 @@ body.js-ready
       display: block
 
   #gallery-filters
-    width: calc(100vw - 500px)
     margin-bottom: 10px
-    display: block
     position: fixed
     top: 0
     right: 0
@@ -65,9 +87,28 @@ body.js-ready
     font-size: 80%
     text-align: right
 
+    @media screen and (min-width: $mobile + 1)
+      width: calc(100vw - 500px)
+      display: block
+
+      .filter
+        padding: 5px 10px
+        &.active
+          padding-left: 25px
+
+    @media screen and (max-width: $mobile)
+      width: 100vw
+      display: flex
+      
+      .filter
+        padding: 5px
+        flex: 1
+        font-size: 80%
+        &.active
+          padding-left: 20px
+
   .filter
     margin: 5px
-    padding: 5px 10px
     position: relative
     background: white
     border: none
@@ -76,12 +117,14 @@ body.js-ready
     background-color: $grey-lightest
     text-align: left
 
+    &:not(:last-child)
+      margin-right: 0
+
     &:not(.active):hover
       background-color: $black
       color: white
 
     &.active
-      padding-left: 25px
       background-color: $gold
       
       &:before

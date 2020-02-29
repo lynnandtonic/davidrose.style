@@ -13,7 +13,7 @@ mixin feature(prev,anchor,next,alt)
 mixin gallery(season,anchor,episode,alt)
   .gallery-shirt(class='season-' + season)
     a(href='#' + anchor)
-      img(src='/assets/images/gallery/' + anchor + '.svg', alt=alt)
+      img(src='/assets/images/gallery/' + anchor + '.svg', alt=alt, loading='lazy')
       figcaption= episode
 
 block content
@@ -21,13 +21,13 @@ block content
   nav.gallery
 
     nav#gallery-filters
-      button.filter.active#filter-all(onclick="filterSelection('all')") All seasons
+      button.filter.active#filter-all(onclick="filterSelection('all')") All
       button.filter#filter-s1(onclick="filterSelection('season-1')") S01
       button.filter#filter-s2(onclick="filterSelection('season-2')") S02
       button.filter#filter-s3(onclick="filterSelection('season-3')") S03
-      button.filter#filter-s3(onclick="filterSelection('season-4')") S04
-      button.filter#filter-s3(onclick="filterSelection('season-5')") S05
-      button.filter#filter-s3(onclick="filterSelection('season-6')") S06
+      button.filter#filter-s4(onclick="filterSelection('season-4')") S04
+      button.filter#filter-s5(onclick="filterSelection('season-5')") S05
+      button.filter#filter-s6(onclick="filterSelection('season-6')") S06
 
     +gallery('1','s01e01-01','S01 E01','black sweater, leather elbows')
     +gallery('1','s01e01-02','S01 E01','black leather jacket')
@@ -192,12 +192,14 @@ block content
     +gallery('6','s06e08-02','S06 E08','silver sweater')
 
   section.feature
+    h1 Dress David Rose
+    h2 a #[a(href='https://twitter.com/lynnandtonic') Lynn Fisher] project
     img.david-rose(src='/assets/images/david-rose-default.svg')
     .shirt#top
       img(src='/assets/images/feature/david-rose-default.svg' alt='t-shirt that says “Dress me”')
       a.next(href='#s01e01-01') Next
 
-    +feature('      top','s01e01-01','s01e01-02','black sweater, leather elbows')
+    +feature('top','s01e01-01','s01e01-02','black sweater, leather elbows')
     +feature('s01e01-01','s01e01-02','s01e01-03','black leather jacket')
     +feature('s01e01-02','s01e01-03','s01e01-04','black zip-up hoodie')
     +feature('s01e01-03','s01e01-04','s01e02-01','white t-shirt, black beanie')

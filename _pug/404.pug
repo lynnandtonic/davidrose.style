@@ -1,8 +1,13 @@
 extends layout
 
 block vars
-  - var pageTitle = 'Nowhere'
-  - var pageDescription = 'Page not found. We can be lost together.'
-  - var bodyClass = 'fourohfour utility'
+  - var pageTitle = '404'
+  - var pageDescription = 'Page not found.'
+  - var bodyClass = 'fourohfour'
 
 block content
+
+  .container
+    h1 Ew, David!
+    p There’s nothing here. Head back #[a(href='/') home].
+    p 🌹

@@ -3,25 +3,28 @@
 --------------------------------------------------------------------*/
 
 .gallery
-  width: calc(100vw - 500px)
-  height: 100vh
   padding: 10px
-  overflow: scroll
   position: fixed
   right: 0
   top: 0
   z-index: 2
-  display: grid
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
   background: white
   text-align: center
 
-  @media screen and (min-width: 901px) and (max-width: 950px)
+  @media screen and (min-width: 951px)
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+  @media screen and (min-width: $mobile + 1) and (max-width: 950px)
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr))
 
+  @media screen and (min-width: $mobile + 1)
+    width: calc(100vw - 500px)
+    height: 100vh
+    overflow: scroll
+    display: grid
   @media screen and (max-width: $mobile)
     width: 100vw
     height: 150px
+    margin-top: 480px
     overflow-x: scroll
     overflow-y: hidden
     display: flex
@@ -56,9 +59,8 @@
     &:focus
       background-color: $grey-lightest
 
-  button
-    &:focus
-      outline: 2px solid $black
+  button:focus
+    outline: 2px solid $black
 
   #gallery-filters
     display: none
@@ -91,25 +93,18 @@ body.js-ready
       width: calc(100vw - 500px)
       display: block
 
-      .filter
-        padding: 5px 10px
-        &.active
-          padding-left: 25px
-
     @media screen and (max-width: $mobile)
-      width: 100vw
+      width: var(--feature-w)
       display: flex
-      
+      margin-top: var(--img-h)
+
       .filter
-        padding: 5px
         flex: 1
         font-size: 80%
-        &.active
-          padding-left: 20px
 
   .filter
     margin: 5px
-    position: relative
+    padding: 5px 8px
     background: white
     border: none
     cursor: pointer
@@ -125,9 +120,7 @@ body.js-ready
       color: white
 
     &.active
+      padding-left: 25px
       background-color: $gold
-      
-      &:before
-        content: '✔'
-        position: absolute
-        left: 8px
+      background: $gold url('/assets/images/icon-check.svg') no-repeat 8px center
+      background-size: 12px auto

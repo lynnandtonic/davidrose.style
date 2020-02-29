@@ -37,3 +37,16 @@ $grey-lightest = #ddd
 // Breakpoints
 
 $mobile = 700px
+
+// Variables
+
+:root
+
+  @media screen and (min-width: $mobile + 1)
+    --feature-w: 500px
+    --img-w: 550px
+    --img-h: 670px
+  @media screen and (max-width: $mobile)
+    --feature-w: 100vw
+    --img-w: 430px
+    --img-h: 480px

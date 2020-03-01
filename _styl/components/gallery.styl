@@ -27,6 +27,8 @@
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr))
     @media screen and (max-width: $mobile)
       grid-template-columns: repeat(auto-fit, minmax(130px, 1fr))
+    @media screen and (max-width: $mobile) and (max-height: $med)
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr))
 
   // right side
   @media screen and (min-width: $mobile + 1) and (max-height: $tall)
@@ -38,42 +40,42 @@
 
   // horiz scroll gallery
 
-  horiz =
-    min-height: 120px
-    overflow-x: scroll
-    overflow-y: hidden
-    display: flex
-    align-items: flex-start
-    height: 'calc(100vh - %s)' % $img-h
-    @supports ( (--a: 0))
-      height: calc(100vh - var(--img-h))
+  // horiz =
+  //   min-height: 120px
+  //   overflow-x: scroll
+  //   overflow-y: hidden
+  //   display: flex
+  //   align-items: flex-start
+  //   height: 'calc(100vh - %s)' % $img-h
+  //   @supports ( (--a: 0))
+  //     height: calc(100vh - var(--img-h))
 
-    .gallery-shirt
-      display: inline-block
-      flex-shrink: 0
+  //   .gallery-shirt
+  //     display: inline-block
+  //     flex-shrink: 0
 
-  horiz-size =
-    .gallery-shirt
-      width: calc((100vh - var(--img-h))*.53)
-      height: calc((100vh - var(--img-h))*.6)
+  // horiz-size =
+  //   .gallery-shirt
+  //     width: calc((100vh - var(--img-h))*.43)
+  //     height: calc((100vh - var(--img-h))*.5)
     
-    img
-      width: auto
-      height: 100%
+  //   img
+  //     width: auto
+  //     height: 100%
 
-  @media screen and (max-width: $mobile) and (max-height: 580px)
-    {horiz}
+  // @media screen and (max-width: $mobile) and (max-height: 580px)
+  //   {horiz}
 
-  @media screen and (max-width: $mobile) and (max-height: 420px)
-    .gallery-shirt
-      width: 80px
+  // @media screen and (max-width: $mobile) and (max-height: 420px)
+  //   .gallery-shirt
+  //     width: 80px
 
-  @media screen and (max-width: $mobile) and (min-height: 421px) and (max-height: 580px)
-    {horiz-size}
+  // @media screen and (max-width: $mobile) and (min-height: 421px) and (max-height: 580px)
+  //   {horiz-size}
 
-  @media screen and (max-width: $mobile) and (min-height: $short + 1) and (max-height: 770px)
-    {horiz}
-    {horiz-size}
+  // @media screen and (max-width: $mobile) and (min-height: $short + 1) and (max-height: 770px)
+  //   {horiz}
+  //   {horiz-size}
 
   .gallery-shirt
     padding: 10px

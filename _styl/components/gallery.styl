@@ -40,7 +40,7 @@
       width: calc(100vw - var(--feature-w))
 
   .gallery-shirt
-    padding: 10px
+    padding: 5px
     float: left
     @supports (display: grid)
       max-width: auto
@@ -52,30 +52,28 @@
   figcaption
     font-weight: $font-weight-bold
 
-    @media screen and (min-height: $med + 1)
+    @media screen and (min-width: $mobile + 1)
+      margin-top: -15px
       font-size: 65%
-      @media screen and (max-width: $mobile)
-        margin-top: -15px
-      @media screen and (min-width: $mobile + 1)
-        margin-top: -20px
 
-    @media screen and (max-height: $med)
+    @media screen and (max-width: $mobile)
       margin-top: -10px
       font-size: 55%
 
   a
+    padding-bottom: 3px
     text-decoration: none
     color: $black
+    display: block
+    border-radius: 3px
 
     &:focus
       background-color: $grey-lightest
+      outline: none
 
   @media(hover: hover) and (pointer: fine)
     a:hover
       background-color: $grey-lightest
-
-  button:focus
-    outline: 2px solid $black
 
   #gallery-filters
     display: none
@@ -116,21 +114,26 @@ body.js-ready
     margin: 5px
     padding: 4px 8px
     flex: 1
-    background-color: $grey-lightest
+    background-color: $black
     border: none
     font-size: 90%
     text-align: left
+    color: white
     cursor: pointer
+
+    &:focus
+      box-shadow: inset 0 0 0 3px $gold
+      outline: none
 
     &:not(:last-child)
       margin-right: 0
 
     &:not(.active):hover
-      background-color: $black
-      color: white
+      opacity: .8
 
     &.active
       padding-left: 25px
       background-color: $gold
       background: $gold url('/assets/images/icon-check.svg') no-repeat 8px center
       background-size: 12px auto
+      color: $black

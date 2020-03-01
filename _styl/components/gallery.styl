@@ -4,78 +4,96 @@
 
 .gallery
   width: 100vw
-  height: calc(100vh - var(--img-h))
   padding: 10px
   position: fixed
   right: 0
-  top: var(--img-h)
   overflow: scroll
-  display: grid
   background: white
   text-align: center
   z-index: 2
+  height: 'calc(100vh - %s)' % $img-h
+  top: $img-h
 
-  @media screen and (min-width: $mobile + 1)
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr))
-  @media screen and (max-width: $mobile)
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr))
+  @supports ( (--a: 0))
+    height: calc(100vh - var(--img-h))
+    top: var(--img-h)
+
+  @supports (display: grid)
+    display: grid
+
+    @media screen and (min-width: $wide + 1)
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+    @media screen and (min-width: $mobile + 1) and (max-width: $wide)
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr))
+    @media screen and (max-width: $mobile)
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr))
 
   // right side
   @media screen and (min-width: $mobile + 1) and (max-height: $tall)
-    width: calc(100vw - var(--feature-w))
     height: 100vh
     top: 0
+    width: 'calc(100vw - %s)' % $feature-w
+    @supports ( (--a: 0))
+      width: calc(100vw - var(--feature-w))
 
-  // wide + shortish screens
-  @media screen and (min-width: $mobile + 1) and (min-height: $tall + 1) and (max-height: $tall + 160)
-    min-height: 150px
+  // horiz scroll gallery
+
+  horiz =
+    min-height: 120px
     overflow-x: scroll
     overflow-y: hidden
     display: flex
-    align-items: center
+    align-items: flex-start
+    height: 'calc(100vh - %s)' % $img-h
+    @supports ( (--a: 0))
+      height: calc(100vh - var(--img-h))
 
     .gallery-shirt
       display: inline-block
       flex-shrink: 0
 
-  // wide + med screens: horiz gallery
-  @media screen and (min-width: $mobile + 1) and (min-height: $tall + 1) and (max-height: $tall + 90)
+  horiz-size =
     .gallery-shirt
-      width: 150px
-  @media screen and (min-width: $mobile + 1) and (min-height: $tall + 91) and (max-height: $tall + 160)
-    .gallery-shirt
-      width: 220px
+      width: calc((100vh - var(--img-h))*.53)
+      height: calc((100vh - var(--img-h))*.6)
+    
+    img
+      width: auto
+      height: 100%
 
-  // middle + shortish screens
-  @media screen and (max-width: $mobile) and (max-height: $med + 90)
-    min-height: 150px
-    overflow-x: scroll
-    overflow-y: hidden
-    display: flex
-    align-items: center
+  @media screen and (max-width: $mobile) and (max-height: 580px)
+    {horiz}
 
+  @media screen and (max-width: $mobile) and (max-height: 420px)
     .gallery-shirt
-      width: 100px
-      display: inline-block
-      flex-shrink: 0
+      width: 80px
 
-  @media screen and (max-width: $mobile) and (min-height: $short - 100) and (max-height: $short)
-    .gallery-shirt
-      width: 150px
-  @media screen and (max-width: $mobile) and (min-height: $med + 1) and (max-height: $med + 90)
-    .gallery-shirt
-      width: 150px
+  @media screen and (max-width: $mobile) and (min-height: 421px) and (max-height: 580px)
+    {horiz-size}
+
+  @media screen and (max-width: $mobile) and (min-height: $short + 1) and (max-height: 770px)
+    {horiz}
+    {horiz-size}
 
   .gallery-shirt
     padding: 10px
+    float: left
+    @supports (display: grid)
+      max-width: auto
+      float: none
 
   img
     width: 100%
 
   figcaption
     font-weight: $font-weight-bold
-    font-size: 65%
-    margin-top: -15px
+
+    @media screen and (min-height: $short - 99px)
+      margin-top: -15px
+      font-size: 65%
+    @media screen and (max-height: $short - 100px)
+      margin-top: -10px
+      font-size: 55%
 
   a
     text-decoration: none
@@ -103,9 +121,6 @@ body.js-ready
       display: block
 
   #gallery-filters
-    width: var(--feature-w)
-    margin-top: var(--img-h)
-    margin-bottom: 10px
     display: flex
     position: fixed
     top: 0
@@ -113,10 +128,18 @@ body.js-ready
     background-color: white
     border-bottom: 2px solid $black
     font-size: 80%
+    width: $feature-w
+    margin-top: $img-h
+
+    @supports ( (--a: 0))
+      width: var(--feature-w)
+      margin-top: var(--img-h)
 
     @media screen and (min-width: $mobile + 1) and (max-height: $tall)
-      width: calc(100vw - 500px)
+      width: 'calc(100vw - %s)' % $feature-w
       margin-top: auto
+      @supports ( (--a: 0))
+        width: calc(100vw - var(--feature-w))
 
   .filter
     margin: 5px

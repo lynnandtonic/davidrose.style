@@ -8,6 +8,7 @@
   position: fixed
   right: 0
   overflow: scroll
+  -webkit-overflow-scrolling: touch
   background: white
   text-align: center
   z-index: 2
@@ -100,9 +101,12 @@
   a
     text-decoration: none
     color: $black
-    
-    &:hover,
+
     &:focus
+      background-color: $grey-lightest
+
+  @media(hover: hover) and (pointer: fine)
+    a:hover
       background-color: $grey-lightest
 
   button:focus

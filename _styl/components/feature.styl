@@ -33,18 +33,17 @@
     padding-right: 20px
     display: inline-block
     top: 13px
+    right: 10px
     background-image: url('/assets/images/icon-twitter.svg')
     background-repeat: no-repeat
     background-position: right center
     background-size: 16px auto
     border-bottom: none
+    font-size: 80%
 
-    @media screen and (min-width: $mobile + 1)
-      left: 430px
+    @media screen and (min-width: $mobile + 1) and (max-height: $tall)
+      right: calc((100vw - var(--feature-w)) + 10px)
       font-size: 85%
-    @media screen and (max-width: $mobile)
-      right: 10px
-      font-size: 80%
 
   .david-rose
     width: var(--img-w)
@@ -55,11 +54,12 @@
   .david-rose,
   .shirt img
     top: 0
-    @media screen and (min-width: $mobile + 1)
+    left: 50%
+    transform: translateX(-47%)
+
+    @media screen and (min-width: $mobile + 1) and (max-height: $tall)
       left: -15px
-    @media screen and (max-width: $mobile)
-      left: 50%
-      transform: translateX(-47%)
+      transform: none
 
   .shirt
     width: var(--feature-w)
@@ -84,7 +84,7 @@
     background: no-repeat center center
     background-size: 80% auto
 
-    @media screen and (max-height: $short)
+    @media screen and (max-width: $mobile) and (max-height: $short)
       width: 15px
       height: @width*2
 
@@ -103,10 +103,9 @@
     font-weight: $font-weight-bold
     position: absolute
     bottom: 10px
+    right: 30px
 
     @media screen and (min-width: $mobile + 1)
-      left: 400px
       font-size: 80%
     @media screen and (max-width: $mobile)
-      right: 20px
       font-size: 70%

@@ -3,28 +3,32 @@
 --------------------------------------------------------------------*/
 
 .gallery
+  width: 100vw
+  height: calc(100vh - var(--img-h))
   padding: 10px
   position: fixed
   right: 0
-  top: 0
-  z-index: 2
+  top: var(--img-h)
+  overflow: scroll
+  display: grid
   background: white
   text-align: center
-
-  @media screen and (min-width: 951px)
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
-  @media screen and (min-width: $mobile + 1) and (max-width: 950px)
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr))
+  z-index: 2
 
   @media screen and (min-width: $mobile + 1)
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr))
+  @media screen and (max-width: $mobile)
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr))
+
+  // right side
+  @media screen and (min-width: $mobile + 1) and (max-height: $tall)
     width: calc(100vw - var(--feature-w))
     height: 100vh
-    overflow: scroll
-    display: grid
-  @media screen and (max-width: $mobile)
-    width: 100vw
+    top: 0
+
+  // wide + shortish screens
+  @media screen and (min-width: $mobile + 1) and (min-height: $tall + 1) and (max-height: $tall + 160)
     min-height: 150px
-    margin-top: var(--img-h)
     overflow-x: scroll
     overflow-y: hidden
     display: flex
@@ -33,7 +37,34 @@
     .gallery-shirt
       display: inline-block
       flex-shrink: 0
+
+  // wide + med screens: horiz gallery
+  @media screen and (min-width: $mobile + 1) and (min-height: $tall + 1) and (max-height: $tall + 90)
+    .gallery-shirt
+      width: 150px
+  @media screen and (min-width: $mobile + 1) and (min-height: $tall + 91) and (max-height: $tall + 160)
+    .gallery-shirt
+      width: 220px
+
+  // middle + shortish screens
+  @media screen and (max-width: $mobile) and (max-height: $med + 90)
+    min-height: 150px
+    overflow-x: scroll
+    overflow-y: hidden
+    display: flex
+    align-items: center
+
+    .gallery-shirt
       width: 100px
+      display: inline-block
+      flex-shrink: 0
+
+  @media screen and (max-width: $mobile) and (min-height: $short - 100) and (max-height: $short)
+    .gallery-shirt
+      width: 150px
+  @media screen and (max-width: $mobile) and (min-height: $med + 1) and (max-height: $med + 90)
+    .gallery-shirt
+      width: 150px
 
   .gallery-shirt
     padding: 10px
@@ -43,13 +74,8 @@
 
   figcaption
     font-weight: $font-weight-bold
-
-    @media screen and (min-width: $mobile + 1)
-      margin: -20px 0 30px
-      font-size: 70%
-    @media screen and (max-width: $mobile)
-      margin: -15px 0 0
-      font-size: 60%
+    font-size: 65%
+    margin-top: -15px
 
   a
     text-decoration: none
@@ -68,10 +94,7 @@
 body.js-ready
 
   .gallery
-    @media screen and (min-width: $mobile + 1)
-      padding-top: 50px
-    @media screen and (max-width: $mobile)
-      padding-top: 35px
+    padding-top: 40px
 
   .gallery-shirt
     display: none
@@ -80,37 +103,30 @@ body.js-ready
       display: block
 
   #gallery-filters
+    width: var(--feature-w)
+    margin-top: var(--img-h)
     margin-bottom: 10px
+    display: flex
     position: fixed
     top: 0
     right: 0
     background-color: white
     border-bottom: 2px solid $black
     font-size: 80%
-    text-align: right
 
-    @media screen and (min-width: $mobile + 1)
+    @media screen and (min-width: $mobile + 1) and (max-height: $tall)
       width: calc(100vw - 500px)
-      display: block
-
-    @media screen and (max-width: $mobile)
-      width: var(--feature-w)
-      display: flex
-      margin-top: var(--img-h)
-
-      .filter
-        flex: 1
-        font-size: 80%
+      margin-top: auto
 
   .filter
     margin: 5px
-    padding: 5px 8px
-    background: white
-    border: none
-    cursor: pointer
-    font-size: 100%
+    padding: 4px 8px
+    flex: 1
     background-color: $grey-lightest
+    border: none
+    font-size: 90%
     text-align: left
+    cursor: pointer
 
     &:not(:last-child)
       margin-right: 0

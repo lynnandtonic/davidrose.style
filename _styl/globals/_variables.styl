@@ -38,19 +38,24 @@ $grey-lightest = #ddd
 
 $mobile = 845px
 $short = 630px
+$med = 700px
+$tall = 890px
 
 // Variables
 
 :root
 
-  @media screen and (min-width: $mobile + 1)
+  @media screen and (min-width: $mobile + 1) and (max-height: $tall)
     --feature-w: 500px
+  @media screen and (min-width: $mobile + 1) and (min-height: $tall + 1)
+    --feature-w: 100vw
+  @media screen and (min-width: $mobile + 1)
     --img-w: 550px
     --img-h: 670px
   @media screen and (max-width: $mobile)
     --feature-w: 100vw
     --img-w: 430px
     --img-h: 480px
-    @media screen and (max-height: $short)
-      --img-w: 250px
-      --img-h: 300px
+  @media screen and (max-width: $mobile) and (max-height: $short)
+    --img-w: 250px
+    --img-h: 300px

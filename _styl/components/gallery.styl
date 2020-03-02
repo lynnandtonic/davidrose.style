@@ -3,7 +3,6 @@
 --------------------------------------------------------------------*/
 
 .gallery
-  width: 100vw
   padding: 10px
   position: fixed
   right: 0
@@ -12,12 +11,20 @@
   background: white
   text-align: center
   z-index: 2
-  height: 'calc(100vh - %s)' % $img-h
-  top: $img-h
 
+  height: 100vh
+  width: 'calc(100vw - %s)' % $feature-w
+  top: 0
   @supports ( (--a: 0))
     height: calc(100vh - var(--img-h))
+    width: 100vw
     top: var(--img-h)
+
+  @media screen and (min-width: $mobile + 1) and (max-height: $tall)
+    height: 100vh
+    top: 0
+    @supports ( (--a: 0))
+      width: calc(100vw - var(--feature-w))
 
   @supports (display: grid)
     display: grid
@@ -31,18 +38,14 @@
     @media screen and (max-width: $mobile) and (max-height: $med)
        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr))
 
-  // right side
-  @media screen and (min-width: $mobile + 1) and (max-height: $tall)
-    height: 100vh
-    top: 0
-    width: 'calc(100vw - %s)' % $feature-w
-    @supports ( (--a: 0))
-      width: calc(100vw - var(--feature-w))
-
   .gallery-shirt
     padding: 5px
+
+    width: 100%
+    max-width: 250px
     float: left
     @supports (display: grid)
+      width: auto
       max-width: auto
       float: none
 
@@ -97,15 +100,14 @@ body.js-ready
     background-color: white
     border-bottom: 2px solid $black
     font-size: 80%
-    width: $feature-w
-    margin-top: $img-h
 
+    width: 'calc(100vw - %s)' % $feature-w
+    margin-top: auto
     @supports ( (--a: 0))
       width: var(--feature-w)
       margin-top: var(--img-h)
 
     @media screen and (min-width: $mobile + 1) and (max-height: $tall)
-      width: 'calc(100vw - %s)' % $feature-w
       margin-top: auto
       @supports ( (--a: 0))
         width: calc(100vw - var(--feature-w))

@@ -45,21 +45,21 @@ $tall = 1100px
 // Variables
 
 :root
-
-  @media screen and (min-width: $mobile + 1) and (max-height: $tall)
-    --feature-w: 500px
-  @media screen and (min-width: $mobile + 1) and (min-height: $tall + 1)
-    --feature-w: 100vw
-  @media screen and (min-width: $mobile + 1)
-    --img-w: 550px
-    --img-h: 670px
-  @media screen and (max-width: $mobile)
-    --feature-w: 100vw
-    --img-w: 420px
-    --img-h: 460px
-  @media screen and (max-width: $mobile) and (max-height: $short)
-    --img-w: 240px
-    --img-h: 280px
+  @supports ( (--a: 0))
+    @media screen and (min-width: $mobile + 1) and (max-height: $tall)
+      --feature-w: 500px
+    @media screen and (min-width: $mobile + 1) and (min-height: $tall + 1)
+      --feature-w: 100vw
+    @media screen and (min-width: $mobile + 1)
+      --img-w: 550px
+      --img-h: 670px
+    @media screen and (max-width: $mobile)
+      --feature-w: 100vw
+      --img-w: 420px
+      --img-h: 460px
+    @media screen and (max-width: $mobile) and (max-height: $short)
+      --img-w: 240px
+      --img-h: 280px
 
 // Variable fallbacks
 

@@ -106,8 +106,8 @@
     bottom: 35%
     z-index: 3
     text-indent: -9999em
-    background: no-repeat center center
-    background-size: 80% auto
+    background: no-repeat url('/assets/images/arrows.svg')
+    background-size: @height @height
 
     &:focus
       background-color: black(.2)
@@ -115,10 +115,10 @@
 
   .prev
     left: 2%
-    background-image: url('/assets/images/arrow-left.svg')
+    background-position: right center
   .next
     right: 2%
-    background-image: url('/assets/images/arrow-right.svg')
+    background-position: left center
 
   figcaption
     font-weight: $font-weight-bold

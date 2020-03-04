@@ -58,52 +58,38 @@
   .david-rose
     position: fixed
     z-index: 0
-    width: $img-w
-    height: $img-h
-
-    @supports ( (--a: 0))
-      width: var(--img-w)
-      height: var(--img-h)
-
-    img
-      position: absolute
-      width: auto
-      height: $img-h
-
-      @supports ( (--a: 0))
-        height: var(--img-h)
 
   .david-rose,
-  .shirt img
-    top: 0
-    left: -15px
-
-    @supports ( (--a: 0))
-      left: 50%
-      transform: translateX(-47%)
-
-    @media screen and (min-width: $mobile + 1) and (max-height: $tall)
-      left: -15px
-      transform: none
-
   .shirt
     width: $feature-w
     height: $img-h
-    position: relative
-    z-index: 1
 
     @supports ( (--a: 0))
       width: var(--feature-w)
       height: var(--img-h)
-
+    
     img
       position: absolute
-      z-index: 2
       width: auto
       height: $img-h
+      top: 0
+      left: -15px
 
       @supports ( (--a: 0))
         height: var(--img-h)
+        left: 50%
+        transform: translateX(-47%)
+
+      @media screen and (max-width: $mobile)
+        width: var(--img-w)
+
+      @media screen and (min-width: $mobile + 1) and (max-height: $tall)
+        left: -15px
+        transform: none
+
+  .shirt
+    position: relative
+    z-index: 1
 
   .prev,
   .next

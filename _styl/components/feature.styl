@@ -73,18 +73,15 @@
       width: auto
       height: $img-h
       top: 0
-      left: -15px
+      left: 50px
 
       @supports ( (--a: 0))
         height: var(--img-h)
         left: 50%
         transform: translateX(-47%)
 
-      @media screen and (max-width: $mobile)
-        width: var(--img-w)
-
       @media screen and (min-width: $mobile + 1) and (max-height: $tall)
-        left: -15px
+        left: 50px
         transform: none
 
   .shirt

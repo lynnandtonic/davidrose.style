@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+https://modest-montalcini-d89e72.netlify.com/* https://davidrose.style/:splat 301!

@@ -66,7 +66,6 @@
 
     @supports ( (--a: 0))
       width: var(--feature-w)
-      height: var(--img-h)
     
     img
       position: absolute
@@ -93,11 +92,17 @@
     width: 25px
     height: @width*2
     position: absolute
-    bottom: 35%
     z-index: 3
     text-indent: -9999em
     background: no-repeat url('/assets/images/arrows.svg')
     background-size: @height @height
+
+    @media screen and (min-width: $mobile + 1)
+      bottom: 35%
+    @media screen and (max-width: $mobile)
+      bottom: 55%
+    @media screen and (max-width: $mobile) and (max-height: $short)
+      bottom: 70%
 
     &:focus
       background-color: black(.2)
@@ -113,10 +118,13 @@
   figcaption
     font-weight: $font-weight-bold
     position: absolute
-    bottom: 10px
     right: 30px
 
     @media screen and (min-width: $mobile + 1)
       font-size: 80%
+      bottom: 10px
     @media screen and (max-width: $mobile)
       font-size: 70%
+      bottom: 230px
+    @media screen and (max-width: $mobile) and (max-height: $short)
+      bottom: 395px

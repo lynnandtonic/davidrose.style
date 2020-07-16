@@ -84,6 +84,28 @@
   #gallery-filters
     display: none
 
+  .coffee
+    grid-column: 1/-1
+    margin: 30px 0
+    padding-top: 30px
+    text-align: center
+    font-size: 78%
+    border-top: 1px solid #ccc
+    
+    span, a
+      display: inline-block
+      padding: 5px 0
+
+    a
+      padding-left: 25px
+      background: no-repeat url('/assets/images/coffee.svg') 5px center
+      background-size: auto 20px
+
+      &:focus
+        background-color: $grey-lightest
+      &:hover
+        text-decoration: underline
+
 body.js-ready
 
   .gallery

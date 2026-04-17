@@ -34,27 +34,6 @@
     @media screen and (max-width: $mobile)
       top: 30px
 
-  #share
-    padding-right: 20px
-    display: inline-block
-    top: 13px
-    background-image: url('/assets/images/icon-twitter.svg')
-    background-repeat: no-repeat
-    background-position: right center
-    background-size: 16px auto
-    border-bottom: none
-    font-size: 80%
-
-    right: 'calc(100vw - %s + 10px)' % $feature-w
-    @supports ( (--a: 0))
-      right: 10px
-
-    @media screen and (min-width: $mobile + 1) and (max-height: $tall)
-      font-size: 85%
-      @supports ( (--a: 0))
-        left: auto
-        right: calc((100vw - var(--feature-w)) + 10px)
-
   .david-rose
     position: fixed
     z-index: 0
